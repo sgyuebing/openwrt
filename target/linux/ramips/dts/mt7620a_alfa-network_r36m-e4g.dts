@@ -7,7 +7,7 @@
 
 / {
 	compatible = "alfa-network,r36m-e4g", "ralink,mt7620a-soc";
-	model = "ALFA Network R36M-E4G";
+	model = "BI4PCS 4G TEL";
 
 	aliases {
 		label-mac-device = &wmac;
@@ -18,47 +18,7 @@
 	};
 
 	chosen {
-		bootargs = "console=ttyS1,115200";
-	};
-
-	gpio-export {
-		compatible = "gpio-export";
-		#size-cells = <0>;
-
-		modem-enable {
-			gpio-export,name = "modem-enable";
-			gpio-export,output = <1>;
-			gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
-		};
-
-		modem-rf-enable {
-			gpio-export,name = "modem-rf-enable";
-			gpio-export,output = <1>;
-			gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
-		};
-
-		rtc-enable {
-			gpio-export,name = "rtc-enable";
-			gpio-export,output = <1>;
-			gpio-export,direction_may_change = <1>;
-			gpios = <&gpio1 8 GPIO_ACTIVE_HIGH>;
-		};
-
-		sim-select {
-			gpio-export,name = "sim-select";
-			gpio-export,output = <0>;
-			gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
-		};
-
-		sim1-detect {
-			gpio-export,name = "sim1-detect";
-			gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-		};
-
-		sim2-detect {
-			gpio-export,name = "sim2-detect";
-			gpios = <&gpio2 1 GPIO_ACTIVE_HIGH>;
-		};
+		bootargs = "console=ttyS0,115200";
 	};
 
 	keys {
@@ -87,12 +47,12 @@
 
 		lan {
 			label = "green:lan";
-			gpios = <&gpio2 3 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio2 0 GPIO_ACTIVE_LOW>;
 		};
 
 		led_system: system {
 			label = "green:system";
-			gpios = <&gpio2 0 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio1 2 GPIO_ACTIVE_LOW>;
 			default-state = "keep";
 		};
 
@@ -151,7 +111,7 @@
 
 &state_default {
 	gpio {
-		groups = "ephy", "pcie", "rgmii1", "wled";
+		groups = "ephy", "pcie", "rgmii1", "wled", "uartf";
 		function = "gpio";
 	};
 };
