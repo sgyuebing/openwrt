@@ -5,7 +5,7 @@
 
 / {
 	compatible = "mediatek,linkit-smart-7688", "mediatek,mt7628an-soc";
-	model = "MediaTek LinkIt Smart 7688";
+	model = "BI4PCS MMDVM";
 
 	aliases {
 		led-boot = &led_wifi;
@@ -33,17 +33,17 @@
 
 		led_wifi: wifi {
 			label = "orange:wifi";
-			gpios = <&gpio 44 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio 19 GPIO_ACTIVE_LOW>;
 		};
 	};
 
 	keys {
 		compatible = "gpio-keys";
 
-		wps {
+		reset {
 			label = "reset";
 			gpios = <&gpio 38 GPIO_ACTIVE_LOW>;
-			linux,code = <KEY_WPS_BUTTON>;
+			linux,code = <KEY_RESTART>;
 		};
 	};
 };
@@ -110,7 +110,6 @@
 			factory: partition@40000 {
 				label = "factory";
 				reg = <0x40000 0x10000>;
-				read-only;
 			};
 
 			partition@50000 {
@@ -152,7 +151,6 @@
 
 &sdhci {
 	status = "okay";
-	mediatek,cd-high;
 };
 
 &wmac {
