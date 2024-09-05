@@ -39,7 +39,7 @@ TARGET_DEVICES += alfa-network_ac1200rm
 
 define Device/alfa-network_r36m-e4g
   SOC := mt7620a
-  IMAGE_SIZE := 16064k
+  IMAGE_SIZE := 32448k
   DEVICE_VENDOR := ALFA Network
   DEVICE_MODEL := R36M-E4G
   DEVICE_PACKAGES := kmod-i2c-ralink kmod-usb2 kmod-usb-ohci uboot-envtools \
