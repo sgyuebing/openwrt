@@ -24,7 +24,7 @@
 
 		led_system: system {
 			label = "green:system";
-			gpios = <&gpio 37 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
 		};
 
 		wifi {
